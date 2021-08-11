@@ -10,7 +10,7 @@ import { useHistory } from "react-router";
 const AddBlog = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
+  const [input, setInput] = useState("");
   const user = useSelector(selectUser);
   const history = useHistory();
 
@@ -20,8 +20,8 @@ const AddBlog = () => {
     db.collection("blogs").add({
       title: title,
       content: content,
-
       username: user.displayName,
+      input : input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
 
@@ -45,7 +45,16 @@ const AddBlog = () => {
             onChange={(e) => setContent(e.target.value)}
             type="text"
           />
+
+          <h3>text</h3>
+          <input 
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            type="text"
+          />
         </div>
+
+
 
         <Button
           variant="contained"
