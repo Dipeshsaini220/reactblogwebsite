@@ -44,6 +44,7 @@ const Blogs = () => {
           <Blog
             key={blog.id}
             id={blog.id}
+            input={blog.data.input}
             title={blog.data.title}
             content={blog.data.content}
             username={blog.data.username}
