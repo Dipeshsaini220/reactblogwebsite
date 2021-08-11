@@ -5,7 +5,7 @@ import { selectUser } from "../../../features/userSlice";
 import { useSelector } from "react-redux";
 import "./BlogDisplay.css";
 
-const BlogDisplay = ({ id, title, content, thumbnailUrl, author }) => {
+const BlogDisplay = ({ id, title, Input , content, author }) => {
   const [input, setInput] = useState("");
 
   const user = useSelector(selectUser);
@@ -15,9 +15,8 @@ const BlogDisplay = ({ id, title, content, thumbnailUrl, author }) => {
   return (
     <div className="blogDisplay">
       <h2 className="blogDisplay__title">{title}</h2>
+      <h2 className="blogDisplay__text">{Input}</h2>
       <span className="blogDisplay__author">Author: {author}</span>
-
-      <img className="blogDisplay__thumbnail" src={thumbnailUrl} alt="" />
       <p className="blogDisplay__content">{content}</p>
 
       <hr />
