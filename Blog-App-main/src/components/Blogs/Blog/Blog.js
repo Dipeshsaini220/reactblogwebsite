@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { setBlog } from "../../../features/blogSlice";
 import "./Blog.css";
 
-const Blog = ({ id, title, content, timestamp, thumbnailUrl, username }) => {
+const Blog = ({ id, input, title, content, timestamp, username }) => {
   const truncate = (str) => {
     return str.length > 10 ? str.substring(0, 75) + "..." : str;
   };
@@ -20,7 +20,7 @@ const Blog = ({ id, title, content, timestamp, thumbnailUrl, username }) => {
           setBlog({
             blogTitle: title,
             blogContent: content,
-
+            blogInput : input,
             blogAuthor: username,
             blogId: id,
           })
@@ -31,6 +31,7 @@ const Blog = ({ id, title, content, timestamp, thumbnailUrl, username }) => {
     >
       <div className="blog__content">
         <h3 className="blog___title">{title}</h3>
+        <h3 className="blog___text">{input}</h3>
         <p className="blog__timestamp">{timestamp}</p>
         <h5 className="blog__summary">{truncate(content)}</h5>
         <Link className="blog__readMore">Read More...</Link>
