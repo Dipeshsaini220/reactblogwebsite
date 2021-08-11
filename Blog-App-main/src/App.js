@@ -10,6 +10,7 @@ import {
   selectBlogAuthor,
   selectBlogContent,
   selectBlogId,
+  selectBlogInput,
   selectBlogTitle,
 } from "./features/blogSlice";
 import "./App.css";
@@ -19,6 +20,7 @@ function App() {
   const dispatch = useDispatch();
 
   const blogId = useSelector(selectBlogId);
+  const blogInput = useSelector(selectBlogInput);
   const blogTitle = useSelector(selectBlogTitle);
   const blogContent = useSelector(selectBlogContent);
 
@@ -45,13 +47,15 @@ function App() {
     <Router>
       <div className="app">
       
-
+     <Header/>
         <Switch>
           <Route path={`/${blogId}/read`}>
             <BlogDisplay
               id={blogId}
+              Input={blogInput}
               title={blogTitle}
               content={blogContent}
+              author={blogAuthor}
               author={blogAuthor}
             />
           </Route>
